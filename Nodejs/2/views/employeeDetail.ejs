@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= employee.firstname %> Page</title>
+
+    <link rel="stylesheet" href="icons/css/all.min.css">
+    <link rel="stylesheet" href="icons/css/brands.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/modal.css">
+    <link rel="stylesheet" href="stylesheets/navigation.css">
+    <link rel="stylesheet" href="stylesheets/home.css">
+    <link rel="stylesheet" href="stylesheets/detail.css">
+</head>
+
+<body>
+    <!-- navigation -->
+    <%- include('./partial/navigation.ejs') %>
+    
+    <!-- modals -->
+    <div id="modal-container">
+        <div class="modal-background">
+            <div class="modal">
+                <button class="close-btn">&#10005;</button>
+
+                <!-- modal alert -->
+                <p class="result">Result: </p>
+
+                <!-- modal form -->
+                <form action="/" method="PATCH" id="updateForm">
+                    <input type="text" id="employeeID" name="employeeID" value="<%= employee.id %>" disabled>
+                    <input type="text" id="companyID" name="companyID" value="<%= employee.companyID %>">
+                    <input placeholder="Employee Firstname" type="text" id="firstname" name="firstname" value="<%= employee.firstname %>">
+                    <input placeholder="Employee Lastname" type="text" id="lastname" name="lastname" value="<%= employee.lastname %>">
+                    <input placeholder="Employee Gender" type="text" id="gender" name="gender" value="<%= employee.gender %>">
+                    <input placeholder="National Number" type="text" id="nationalNumber" name="nationalNumber" value="<%= employee.nationalNumber %>">
+                    <input id="dateOfBirth" name="dateOfBirth" type="date" data-date="" data-date-format="DD MMMM YYYY" value="<%= employee.miladi %>">
+                    <input placeholder="Manager Status: true, false, none" type="text" id="managerStatus" name="managerStatus" value="<%= employee.managerStatus %>">
+
+                    <button type="submit">update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="main">
+            <!-- main header -->
+            <div class="main-header">
+                <h1><%= employee.firstname %> Profile</h1>
+                <div class="buttons">
+                    <div id="two" class="button">update employee</div>
+
+                    <!-- delete form -->
+                    <form action="/" method="DELETE" id="deleteForm">
+                        <button class="button" type="submit">delete employee</button>
+                    </form>
+                </div>
+
+                <p class="deleteAlert">deleted successfully.</p>
+            </div>
+
+
+            <!-- content -->
+            <div class="content">
+                <div class="dCard">
+                    <div class="dCard-picture"></div>
+                    <div class="dCard-content">
+                        <div class="dCard-title">
+                            <h2><%= employee.firstname %> <%= employee.lastname %></h2>
+                        </div>
+
+                        <div class="dCrad-description">
+                            <h3>Description</h3>
+                            <p>
+                                <span><%= employee.firstname %></span>
+                                <span><%= employee.lastname %></span>
+                                from
+                                <span><%= employee.companyID %></span>
+                                company, with
+                                <span><%= employee.nationalNumber %></span>
+                                national number and
+                                <span><%= employee.gender %> </span> is
+                                <span><%= employee.age %></span>
+                                years old.
+                            </p>
+                        </div>
+
+                        <div class="dCard-feature">
+                            <h3>Specifications</h3>
+
+                            <ul>
+                                <li>
+                                    <p class="fd">companyID</p>
+                                    <p><%= employee.companyID %></p>
+                                </li>
+                                <li>
+                                    <p class="fd">Gender</p>
+                                    <p><%= employee.gender %></p>
+                                </li>
+                                <li>
+                                    <p class="fd">National Number</p>
+                                    <p><%= employee.nationalNumber %></p>
+                                </li>
+                                <li>
+                                    <p class="fd">Manager Status</p>
+                                    <p><%= employee.managerStatus %></p>
+                                </li>
+                                <li>
+                                    <p class="fd">ِDate of Birth</p>
+                                    <p><%= employee.persian %></p>
+                                </li>
+                                <li>
+                                    <p class="fd">employeeID</p>
+                                    <p><%= employee.id %></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <!-- scripts -->
+    <script src="javascripts/jquery-3.5.1.min.js"></script>
+    <script src="javascripts/navigation.js"></script>
+    <script src="javascripts/modal.js"></script>
+    <script src="javascripts/alterEmployee.js"></script>
+</body>
+
+</html>

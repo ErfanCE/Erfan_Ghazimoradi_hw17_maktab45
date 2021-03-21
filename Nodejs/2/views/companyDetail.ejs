@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= company.companyName %> Page</title>
+
+    <link rel="stylesheet" href="icons/css/all.min.css">
+    <link rel="stylesheet" href="icons/css/brands.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/modal.css">
+    <link rel="stylesheet" href="stylesheets/navigation.css">
+    <link rel="stylesheet" href="stylesheets/home.css">
+    <link rel="stylesheet" href="stylesheets/detail.css">
+</head>
+
+<body>
+    <!-- navigation -->
+    <%- include('./partial/navigation.ejs') %>
+    
+    <!-- modals -->
+    <div id="modal-container">
+        <div class="modal-background">
+            <div class="modal">
+                <button class="close-btn">&#10005;</button>
+
+                <!-- modal alert -->
+                <p class="result">Result: </p>
+
+                <!-- modal form -->
+                <form action="/" method="PATCH" id="updateForm">
+                    <input type="text" id="companyID" name="companyID" value="<%= company.id %>" disabled>
+                    <input placeholder="Company Name" type="text" id="companyName" name="companyName" value="<%= company.companyName %>">
+                    <input placeholder="Company State" type="text" id="state" name="state" value="<%= company.state %>">
+                    <input placeholder="Company City" type="text" id="city" name="city" value="<%= company.city %>">
+                    <input placeholder="Telephone Number" type="text" id="telephoneNumber" name="telephoneNumber" value="<%= company.telephoneNumber %>">
+                    <input placeholder="Registeration Number" type="text" id="registerationNumber" name="registerationNumber" value="<%= company.registerationNumber %>">
+
+                    <button type="submit">update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="main">
+            <!-- main header -->
+            <div class="main-header">
+                <h1><%= company.companyName %> Profile</h1>
+                <div class="buttons">
+                    <div id="two" class="button">update company</div>
+
+                    <!-- delete form -->
+                    <form action="/" method="DELETE" id="deleteForm">
+                        <button class="button" type="submit">delete company</button>
+                    </form>
+                </div>
+                <p class="deleteAlert">deleted successfully.</p>
+            </div>
+
+
+            <!-- content -->
+            <div class="content">
+                <div class="dCard">
+                    <div class="dCard-picture"></div>
+                    <div class="dCard-content">
+                        <div class="dCard-title">
+                            <h2> <%= company.companyName %></h2>
+
+                            <a href="/employee/companyEmployees/<%= company._id %>">employees</a>
+                        </div>
+
+                        <div class="dCrad-description">
+                            <h3>Description</h3>
+                            <p>
+                                <span><%= company.companyName %></span>
+                                company in 
+                                <span><%= company.city %>, <%= company.state %></span>
+                                has
+                                <span>45</span>
+                                employees, with
+                                <span><%= company.telephoneNumber %></span>
+                                phone number registered by
+                                <span><%= company.registerationNumber %></span>
+                                registeration number at
+                                <span><%= company.persian %> </span>.
+                            </p>
+                        </div>
+
+                        <div class="dCard-feature">
+                            <h3>Specifications</h3>
+
+                            <ul>
+                                <li>
+                                    <p class="fd">Company State</p>
+                                    <p><%= company.state %></p>
+                                </li>
+                                <li>
+                                    <p class="fd">Company City</p>
+                                    <p><%= company.city %></p>
+                                </li>
+                                <li>
+                                    <p class="fd">Phone Number</p>
+                                    <p><%= company.telephoneNumber %></p>
+                                </li>
+                                <li>
+                                    <p class="fd">Registeration Number</p>
+                                    <p><%= company.registerationNumber %></p>
+                                </li>
+                                <li>
+                                    <p class="fd">ِRegisteration Date</p>
+                                    <p><%= company.persian %></p>
+                                </li>
+                                <li>
+                                    <p class="fd">companyID</p>
+                                    <p><%= company.id %></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- scripts -->
+    <script src="javascripts/jquery-3.5.1.min.js"></script>
+    <script src="javascripts/navigation.js"></script>
+    <script src="javascripts/modal.js"></script>
+    <script src="javascripts/alterCompany.js"></script>
+</body>
+
+</html>

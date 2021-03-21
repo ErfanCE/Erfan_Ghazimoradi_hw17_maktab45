@@ -1,0 +1,189 @@
+/* Design */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.main {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* background-color: blue; */
+    justify-content: center;
+}
+
+.cards_item {
+    display: flex;
+    padding: 1rem;
+    /* background-color: red; */
+    width: 100%;
+}
+
+@media (min-width: 40rem) {
+    .cards {
+        justify-content: initial;
+    }
+    .cards_item {
+        width: 50%;
+    }
+}
+
+@media (min-width: 56rem) {
+    .cards {
+        justify-content: initial;
+    }
+    .cards_item {
+        width: 33.3333%;
+    }
+}
+
+.card {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px -14px rgba(30, 44, 21, 0.4);
+    background: linear-gradient(to top left, #dcffd7 , #b2ffbf);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* background-color: yellow; */
+    width: 100%;
+    position: relative;
+}
+
+.card_content {
+    padding: 1rem;
+}
+
+.card_title {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin: 0px;
+}
+
+.card_text {
+    color: #ffffff;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+}
+
+.main-header {
+    /* background-color: #ccc; */
+    overflow: hidden;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.main-header > h1 {
+    float: left;
+}
+
+.main-header > div {
+    float: left;
+}
+
+
+/* edited */
+.information {
+    list-style: none;
+}
+.information .title {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.information li {
+    margin-bottom: 5px;
+}
+
+.information li span {
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #222;
+}
+
+.card_btn {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    padding: 0.8rem;
+    border-radius: 1rem;
+    text-align: center;
+    background-color: #2ead58;
+    color: #fdfdfd;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.buttons {
+    overflow: hidden;
+}
+
+.date-filter {
+    float: left;
+    text-align: center;
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #eee;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    float: left;
+}
+.date-filter button{
+    border: none;
+    background-color: #2ead58;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 8px;
+    font-size: 14px;
+    color: #f8f8f8;
+    font-weight: 400;
+    cursor: pointer;
+}
+.date-filter label {
+    margin-right: 8px;
+}
+.date-filter input {
+    border: none;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.filterAlert {
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+    min-width: 120px;
+    padding: 15px 0.9rem;
+    text-align: center;
+    color: #f8f8f8;
+    background-color: rgb(180, 23, 23);
+    border-radius: 1rem;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: 0.5s;
+    font-weight: 400;
+}
