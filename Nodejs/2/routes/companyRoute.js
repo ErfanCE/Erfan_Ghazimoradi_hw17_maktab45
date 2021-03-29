@@ -21,4 +21,8 @@ router.delete('/delete/:companyID', companyControll.deleteCompany);
 // state and city to tehran
 router.get('/company-filter', companyControll.companyFilterDate);
 
+// state and city to tehran
+router.get('/last-year', companyControll.lastYearRegisteration);
+
+router.get('/change-tehran', companyControll.stateCityTehran);
 module.exports = router;
